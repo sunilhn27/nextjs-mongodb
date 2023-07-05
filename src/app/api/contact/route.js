@@ -3,7 +3,10 @@ import ConnectDB from "@/services/Mongo";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  return NextResponse.json({ msg: "Hello Again" })
+  console.log("inside GET")
+  const data = await ContactModel.find().exec();
+  console.log(data)
+  return NextResponse.json(data)
 }
 
 export async function POST(req) {

@@ -1,7 +1,10 @@
 "use client"
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation';
 
 function ContactForm() {
+
+    const router = useRouter();
 
     const [user, setUser] = useState({
         yourName: "",
@@ -45,6 +48,7 @@ function ContactForm() {
             setIsSuccess(true);
             setTimeout(() => {
                 setIsSuccess(false)
+                router.push("/dashboard")
             }, 5000)
         }
 
